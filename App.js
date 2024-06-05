@@ -5,19 +5,22 @@ import i18n from './src/configs/i18n';
 import {StatusBar} from 'react-native';
 import color from './src/constants/color';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import SplashScreen from './src/screens/SplashScreen';
+import Navigator from './src/routes/Navigator'
+import { ThemeProvider } from './src/configs/ThemeContext';
 
 const App = () => {
   return (
     <SafeAreaProvider>
+      <ThemeProvider>
       <I18nextProvider i18n={i18n}>
         <StatusBar
           animated={true}
           barStyle={'dark-content'}
           backgroundColor={color.white}
         />
-        <SplashScreen/>
+        <Navigator/>
       </I18nextProvider>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 };
